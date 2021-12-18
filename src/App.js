@@ -8,15 +8,20 @@ const schema = yup.object().shape({
 
 })
 
+const initialFormValues = {
+  username: '', size: '', checked: false, instructions: ''
+}
 
 const App = () => {
   
-
- 
+const [ formValues, setFormValues] = useState(initialFormValues);
+const handleChange = (name, value) => {
+  setFormValues({...formValues, [name]: value});
+}
 
   return (    
       <div className='App'>
-        <Form />
+        <Form values={formValues} />
       </div>
   );
 };
